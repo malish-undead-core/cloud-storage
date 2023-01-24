@@ -6,6 +6,8 @@ const jwt = require("jsonwebtoken")
 const { check, validationResult } = require("express-validator")
 const router = new Router()
 const authMiddleware = require("../middleware/auth.middleware")
+const fileService = require("../services/fileService")
+const File = require("../models/File")
 
 router.post("/registration",
     [
@@ -40,6 +42,7 @@ router.post("/registration",
             if (password === retypePassword) {
                 const user = new User({ email, username, password: hashPassword, password: hashRetypePassword })
                 await user.save()
+                await fileService.createDir(new File({ user: user.id, name: "" }))
                 return res.json({ message: "User was created" })
             } else {
                 return res.status(400).json({ message: "Passwords do not match" })
@@ -88,7 +91,7 @@ router.post("/login",
 router.get("/auth", authMiddleware,
     async (req, res) => {
         try {
-            const user = await User.findOne({ id: req.user.id })
+            const user = await User.findOne({ _id: req.user.id })
             const token = jwt.sign({ id: user.id }, config.get("secretKey"), { expiresIn: "1h" })
             return res.json({
                 token,
