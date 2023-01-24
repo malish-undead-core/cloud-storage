@@ -1,0 +1,40 @@
+.registration {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 500px;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    align-self: center;
+    margin-top: 200px;
+}
+
+.registration__header {
+    font-size: 30px;
+    font-weight: 700;
+
+}
+
+input {
+    margin: 5px 20px;
+}
+
+.registration__btn {
+    border: none;
+    background-color: aquamarine;
+    border-radius: 8px;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 30px;
+    align-self: flex-end;
+    margin-top: 10px;
+}
+
+@media (max-width: 650px) {
+    .registration {
+        width: 90%;
+    }
+}

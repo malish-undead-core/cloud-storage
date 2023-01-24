@@ -1,0 +1,42 @@
+input {
+    border: none;
+    border-bottom: aquamarine solid 3px;
+    background: transparent;
+    width: 100%;
+    padding: 3px;
+    font-size: 15px;
+}
+
+input:hover {
+    outline: none;
+    transform: scale(1.02);
+}
+
+input:focus {
+    outline: none;
+    transform: scale(1.02);
+}
+
+::-webkit-input-placeholder {
+    /* Chrome */
+    color: #566885;
+    font-weight: 700;
+}
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #566885;
+    font-weight: 700;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #566885;
+    font-weight: 700;
+}
+
+:-moz-placeholder {
+    /* Firefox 4 - 18 */
+    color: #566885;
+    font-weight: 700;
+}
