@@ -10,13 +10,17 @@ const Login = () => {
     const [password, setPassword] = useState("")
     const dispatch = useDispatch()
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
+
     return (
-        <div className="authorization" method="post">
+        <form onSubmit={handleSubmit} className="authorization" method="post">
             <div className="authorization__header">Log in</div>
-            <Input value={email} setValue={setEmail} type="text" placeholder="Email or login*" />
-            <Input value={password} setValue={setPassword} type="password" placeholder="Password*" />
-            <button className="authorization__btn" onClick={() => dispatch(login(email, password))}>Log in</button>
-        </div>
+            <Input className="qqq" value={email} setValue={setEmail} type="text" placeholder="Email or login*" />
+            <Input className="qqq" value={password} setValue={setPassword} type="password" placeholder="Password*" />
+            <button className="authorization__btn" onClick={() => dispatch(login(email, password))} >Log in</button>
+        </form>
     )
 }
 export default Login

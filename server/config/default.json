@@ -1,5 +1,5 @@
 {
-    "serverPort": 8005,
+    "serverPort": 8001,
     "dbUrl": "mongodb+srv://malish:Slava16111988@cloud.vwvzwdd.mongodb.net/?retryWrites=true&w=majority",
     "secretKey": "undead-secret-key",
     "filePath": "/home/malish/React App/cloud-storage/server/files"
