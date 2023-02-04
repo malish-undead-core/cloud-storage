@@ -14,10 +14,22 @@ class FileService {
                     return reject({ message: "File already exist" })
                 }
             } catch (e) {
-                console.log(e)
                 return reject({ message: "File error" })
             }
         }))
+    }
+
+    deleteFile(file) {
+        const path = this.getPath(file)
+        if (file.type === "dir") {
+            fs.rmdirSync(path)
+        } else {
+            fs.unlinkSync(path)
+        }
+    }
+
+    getPath(file) {
+        return config.get("filePath") + "/" + file.user + "/" + file.path
     }
 }
 

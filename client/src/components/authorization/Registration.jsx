@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-// import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { registration } from '../../actions/user'
-// import { setPopupDisplay } from '../../reducers/fileReducer'
+import { setPopupDisplay } from '../../reducers/fileReducer'
 import Input from '../../utils/input/Input'
 import './authorization.css'
 
@@ -10,7 +10,7 @@ const Registration = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [retypePassword, setRetypePassword] = useState("")
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -18,7 +18,9 @@ const Registration = () => {
 
     function signUp() {
         registration(email, username, password, retypePassword)
-        // dispatch(setPopupDisplay("none"))
+        if (alert === "User was created") {
+            dispatch(setPopupDisplay("none"))
+        }
     }
 
     return (

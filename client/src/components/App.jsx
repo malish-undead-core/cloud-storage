@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { auth } from "../actions/user";
 import Disk from "./disk/Disk";
+import Profile from "./profile/Profile";
 import './app.css'
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             :
             <Routes>
               <Route path="/" element={<Disk />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           }
